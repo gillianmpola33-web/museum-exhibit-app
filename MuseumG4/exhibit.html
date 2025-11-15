@@ -1,0 +1,366 @@
+<!-- File: exhibit.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Travels Through Time — A Pop-Up Museum Exhibit</title>
+
+  <!-- 1) External stylesheet (requirement) -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- 2) Small embedded CSS block (requirement #3 of CSS methods) -->
+  <style>
+    /* Selectors: type, class, id, universal (*), descendant, grouped */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('PIC1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      font: 16px/1.5 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      color: maroon;
+    }
+
+    header#site-header {
+      background-image: url('hero-bg.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    header#site-header .hero-title {
+      font: 2.25rem;
+      letter-spacing: 1px;
+      margin: 0 0 8px;
+    }
+
+    header#site-header .hero-sub {
+      margin: 0 0 12px;
+      word-spacing: 2px;
+    }
+
+    nav.primary {
+      background-color: none;
+      padding: 8px 16px;
+      text-align: center;
+    }
+
+    nav.primary a {
+      margin: 0 8px;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    nav.primary a:hover,
+    nav.primary a:focus {
+      background-color: #1cafa3;
+      color: rgb(128, 18, 73);
+    }
+
+    main {
+      padding: 24px;
+      max-width: 1000px;
+      margin: 18px auto;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 20px;
+    }
+
+    /* Table styling that demonstrates box model */
+    table.ticket-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 2px solid #444;
+      margin-bottom: 18px;
+    }
+
+    table.ticket-table th,
+    table.ticket-table td {
+      padding: 10px 12px;
+      border: 1px solid #0bdd74;
+      text-align: left;
+    }
+
+    /* Framed poster requirement */
+    figure.poster {
+      border: 8px solid #cc8d06;
+      padding: 8px;
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    figure.poster img {
+      display: block;
+      width: 260px;
+      height: auto;
+      border: 4px solid #222;
+    }
+
+    figure.poster figcaption {
+      text-align: center;
+      padding-top: 8px;
+      font-style: italic;
+    }
+
+    /* Form styles */
+    form.ticket-inquiry {
+      background: #cc8d06;
+      border: 1px solid #e40d0d;
+      padding: 12px;
+      border-radius: 6px;
+    }
+
+    form.ticket-inquiry label {
+      display: block;
+      margin: 8px 0 4px;
+    }
+
+    form.ticket-inquiry input[type="email"],
+    form.ticket-inquiry input[type="number"],
+    form.ticket-inquiry input[type="date"] {
+      width: 100%;
+      padding: 8px;
+    }
+
+    /* Small canvas area */
+    #tiny-canvas {
+      border: 1px dashed #8ed49a;
+      display: block;
+      margin-top: 12px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 18px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Grouped selectors example */
+    h1,
+    h2,
+    h3 {
+      margin: 0 0 10px;
+    }
+
+    .username {
+      color: rgb(201, 174, 65);
+    }
+  </style>
+</head>
+
+<body bgcolor="Silver">
+  <header id="site-header">
+    <div class="hero-title" style="color: rgb(0, 0, 0)"><strong>Travel Through Time</strong></div>
+    <div class="hero-sub" style="color: rgb(0, 0, 0)"><strong>Every Engine has a Story _ Come Discover Theirs</strong>
+    </div>
+
+    <!-- Header <div> with exhibit title and <marquee> dates (explicit requirement) -->
+    <div class="topbar">
+      <div id="exhibit-info"
+        style="background: rgba(0,0,0,0.35); display:inline-block; padding:6px 12px; border-radius:6px;">
+        <!-- INLINE STYLE used exactly once -->
+        <div><strong>Exhibit:</strong> Mulungushi University</div>
+        <marquee behavior="scroll" direction="left" scrollamount="4" aria-label="Exhibit dates">Now on tour — Oct 16,
+          2025</marquee>
+      </div>
+    </div>
+  </header>
+
+  <nav class="primary" role="navigation" aria-label="Primary navigation">
+    <a href="#about"></a>
+    <a href="#artifacts"></a>
+    <a href="#tickets"></a>
+    <a href="https://tickets.example.com" target="_blank" rel="noopener noreferrer"></a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2 class="username">About the Exhibit</h2>
+      <p class="username">Step into the Garage of Dreams, where the past meets the present and the world’s most iconic
+        cars come to life. Our exhibit takes you on a journey through time, showcasing over 100 vintage and modern
+        vehicles, each with its own story to tell and secrets to share.</p>
+
+      <!-- Embedded video (self-recorded) with two sources, poster, and fallback text -->
+      <figure>
+        <video controls poster="video-poster.jpg" width="300" style="display: block; margin: auto;">
+          <source src="video-pitch.webm" type="video/webm">
+          <source src="VID1.mp4" type="video/mp4">
+          <!-- captions track (bonus accessibility) -->
+          <track kind="captions" src="captions.vtt" srclang="en" label="English captions">
+          Your browser does not support HTML5 video. Watch the pitch on <a href="VID1.mp4">MP4</a>.
+        </video>
+        <figcaption>Rev Up Your Engines!</figcaption>
+      </figure>
+
+      <!-- Audio teaser with .ogg fallback and short text summary -->
+      <section aria-labelledby="audio-label">
+        <h3 id="audio-label">Audio Teaser</h3>
+        <audio controls>
+          <source src="teaser.ogg" type="audio/ogg">
+          <source src="AUD1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <p class="vis-summary">THE PRAGA BOHEMA</p>
+      </section>
+
+    </section>
+
+    <div class="layout">
+      <section id="main-content">
+        <h2 id="artifacts">Featuring</h2>
+        <!-- Unordered list of featured artifacts (requirement) -->
+        <ul>
+          <li><strong>Mercedes-Benz</strong> — Luxury Redefined.</li>
+          <li><strong>BMW</strong> — The Ultimate Driving Machine.</li>
+          <li><strong>Ford</strong> — Built Tough, Built to Last.</li>
+        </ul>
+
+        <h3 id="tickets">Tickets & Pricing</h3>
+
+        <!-- Ticket table (4+ rows) requirement -->
+        <table class="ticket-table" aria-describedby="ticket-notes">
+          <thead>
+            <tr>
+              <th>Ticket Type</th>
+              <th>Price (ZMK)</th>
+              <th>Age Limit</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Adult</td>
+              <td>80</td>
+              <td>16+</td>
+              <td>Includes audio guide (optional)</td>
+            </tr>
+            <tr>
+              <td>Student</td>
+              <td>40</td>
+              <td>5–25</td>
+              <td>Valid student ID required</td>
+            </tr>
+            <tr>
+              <td>Child</td>
+              <td>20</td>
+              <td>3–15</td>
+              <td>Must be accompanied by an adult</td>
+            </tr>
+            <tr>
+              <td>Family (2 adults + 2 children)</td>
+              <td>180</td>
+              <td>All ages</td>
+              <td>Best value for families</td>
+            </tr>
+            <tr>
+              <td>Concession</td>
+              <td>30</td>
+              <td>—</td>
+              <td>Seniors & disabled visitors</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p id="ticket-notes">Notes: prices listed in Zambian Kwacha (ZMK)</p>
+
+        <!-- Form: ticket inquiry (email, number tickets, date) -->
+        <section aria-labelledby="inquiry-label">
+          <h3 id="inquiry-label">Ticket Inquiry</h3>
+          <form class="ticket-inquiry" action="#" method="get" novalidate>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+            <label for="num">Number of tickets</label>
+            <input type="number" id="num" name="num" min="1" max="20" value="2" required>
+
+            <label for="visit-date">Preferred visit date</label>
+            <input type="date" id="visit-date" name="visit-date" required>
+
+            <button type="submit">Send Inquiry</button>
+          </form>
+        </section>
+
+      </section>
+
+      <aside>
+        <!-- Figure: poster with figcaption and alt text (requirement). Also framed by CSS above -->
+        <figure class="poster">
+          <img src="PIC2.jpg" alt="Poster artwork: stylised collage of car and the exhibit title 'Travels Through Time'"
+            width="260" height="380">
+          <figcaption>Poster: "Travels Through Time" — by R. Mwansa.</figcaption>
+        </figure>
+
+        <!-- Link examples: external & internal anchor -->
+        <p>
+          <a href="https://tickets.example.com" target="_blank" rel="noopener noreferrer">Get Tickets</a>
+        </p>
+        <p>
+          <a href="#about">About the Exhibit</a>
+        </p>
+
+        <figure class="poster">
+          <img src="PIC3.jpg" alt="Poster artwork: stylised collage of car and the exhibit title 'Travels Through Time'"
+            width="260" height="380">
+          <figcaption>Poster: "The Early Pioneer" — A 1908 Ford Model T!</figcaption>
+        </figure>
+
+
+        <!-- Geolocation placeholder (optional) -->
+        <div id="geo" aria-live="polite" style="margin-top:12px;">Location: <span id="latlng">Kabwe</span></div>
+
+      </aside>
+    </div>
+
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Pop‑Up Museum Collective — For more info email <a
+        href="museum@TravelsThroughTime.com">museum@TravelsThroughTime.com</a></p>
+  </footer>
+
+  <!-- Small script: draw a filled rectangle on canvas and attempt geolocation (if permitted) -->
+  <script>
+    // Canvas drawing (tiny visual)
+    const c = document.getElementById('tiny-canvas');
+    if (c && c.getContext) {
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#e2b07f';
+      ctx.fillRect(10, 20, 220, 80);
+      ctx.fillStyle = '#222';
+      ctx.font = '16px sans-serif';
+      ctx.fillText('Travels Through Time', 18, 60);
+    }
+
+    // Geolocation (optional API): show lat/long if user allows
+    const latlng = document.getElementById('latlng');
+    if (navigator.geolocation && latlng) {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        const { latitude, longitude } = pos.coords;
+        latlng.textContent = latitude.toFixed(4) + ', ' + longitude.toFixed(4);
+      }, (err) => {
+        latlng.textContent = 'Permission denied or unavailable';
+      });
+    }
+  </script>
+</body>
+
+</html>
